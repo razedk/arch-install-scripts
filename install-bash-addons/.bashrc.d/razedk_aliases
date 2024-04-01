@@ -3,6 +3,16 @@
 # Arch
 alias pup='sudo pacman -Suy'
 
+# GIT
+alias gst='git status'
+alias gcm='git commit -m "$1"'
+alias gpu='git push'
+alias gad='git add .'
+#alias gst='git status'
+#alias gst='git status'
+#alias gst='git status'
+
+
 # Toolbox / Podman
 alias te='toolbox enter'
 alias tc='toolbox create'

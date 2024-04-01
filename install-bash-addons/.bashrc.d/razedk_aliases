@@ -5,7 +5,7 @@ alias pup='sudo pacman -Suy'
 
 # GIT
 alias gst='git status'
-alias gcm='git commit -m "$1"'
+alias gcm='git commit -m'
 alias gpu='git push'
 alias gad='git add .'
 #alias gst='git status'

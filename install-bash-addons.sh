@@ -40,14 +40,10 @@ installStarship() {
 }
 
 installConfig() {
-    # Create target directories if not already exist
-    file_util_create_dir ${BASHRC_DIR}
-    file_util_create_dir ${CONFIG_DIR}
-   
-    print_info "Copying config files (${INSTALL_PATH})..."
-    \cp -a ${INSTALL_PATH}/.bashrc.d ${HOME}/
-    \cp ${INSTALL_PATH}/starship.toml ${CONFIG_DIR}/
-    \cp -f ${INSTALL_PATH}/.bashrc ~
+    print_info "Sym linking config files (${INSTALL_PATH})..."
+    file_util_create_sym_link ${INSTALL_PATH}/.bashrc.d ${HOME}/.bashrc.d 
+    file_util_create_sym_link ${INSTALL_PATH}/starship.toml ${CONFIG_DIR}/starship.toml 
+    file_util_create_sym_link ${INSTALL_PATH}/.bashrc ~/.bashrc 
 }
 
 configNerdFont() {

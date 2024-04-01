@@ -21,3 +21,17 @@ file_util_get_file_name_no_ext() {
     basename="${1##*/}"
 	echo "${basename%%.*}"
 }
+
+file_util_create_sym_link() {
+    local source=$1
+    local destination=$2
+
+    # Check if the destination exists and remove it if it does
+    if [ -e "$destination" ]; then
+        rm -rf "$destination"
+    fi
+
+    # Create symbolic link
+    ln -s "$source" "$destination"
+}
+

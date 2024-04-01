@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Arch
+alias pup='sudo pacman -Suy'
+
 # Toolbox / Podman
 alias te='toolbox enter'
 alias tc='toolbox create'
@@ -67,7 +70,7 @@ alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
 
 # Show running services
 alias ss-running="systemctl --type=service --state=running"
-alias ss-running="systemctl --type=service --state=failed"
+alias ss-failed="systemctl --type=service --state=failed"
 alias ss-all="systemctl --type=service"
 
 # Search files in the current folder

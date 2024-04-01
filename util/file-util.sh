@@ -31,7 +31,12 @@ file_util_create_sym_link() {
         rm -rf "$destination"
     fi
 
-    # Create symbolic link
+    # Check if the destination exists as a sym link
+    if [ -L "$destination" ]; then
+        rm "$destination"
+    fi
+
+   # Create symbolic link
     ln -s "$source" "$destination"
 }
 

@@ -15,7 +15,7 @@ source util/file-util.sh
 # F U N C T I O N S   S E C T I O N
 #
 
-INSTALL_PATH="install-bash-addons"
+INSTALL_PATH="$(pwd)/install-bash-addons"
 
 command_exists () {
     command -v $1 >/dev/null 2>&1;

@@ -1,5 +1,6 @@
 format = """
 [](#432c40)\
+${env_var.VIRTUAL_ENV_PROMPT}\
 $username\
 [](fg:#432c40 bg:#514674)\
 $directory\
@@ -27,12 +28,16 @@ command_timeout = 5000
 # Disable the blank line at the start of the prompt
 # add_newline = false
 
+[env_var.VIRTUAL_ENV_PROMPT]
+style = "bg:#432c40"
+format = "[$env_value]($style)"
+
 # You can also replace your username with a neat symbol like  to save some space
 [username]
 show_always = true
 style_user = "bg:#432c40"
 style_root = "bg:#432c40"
-format = '[$user ]($style)'
+format = '[ $user ]($style)'
 
 [directory]
 style = "bg:#514674"

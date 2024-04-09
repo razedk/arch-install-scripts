@@ -24,7 +24,7 @@ command_exists () {
 installDepend() {
     # Check for dependencies.
     print_info "Installing dependencies..."
-    sudo pacman -S zoxide fzf bash-completion tar bat starship ttf-firacode-nerd 
+    sudo pacman -S zoxide fzf bash-completion tar bat starship ttf-firacode-nerd stow
 }
 
 installStarship() {
@@ -41,9 +41,8 @@ installStarship() {
 
 installConfig() {
     print_info "Sym linking config files (${INSTALL_PATH})..."
-    file_util_create_sym_link ${INSTALL_PATH}/.bashrc.d ${HOME}/.bashrc.d 
-    file_util_create_sym_link ${INSTALL_PATH}/starship.toml ${CONFIG_DIR}/starship.toml 
-    file_util_create_sym_link ${INSTALL_PATH}/.bashrc ~/.bashrc 
+    rm ${HOME}/.bashrc 
+    stow -t ${HOME} -d ${INSTALL_PATH} .
 }
 
 configNerdFont() {

@@ -2,6 +2,7 @@
 
 # Arch
 alias pup='sudo pacman -Suy'
+alias pin='sudo pacman -S'
 
 # GIT
 alias gst='git status'

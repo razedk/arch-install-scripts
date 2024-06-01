@@ -24,7 +24,7 @@ command_exists () {
 installDepend() {
     # Check for dependencies.
     print_info "Installing dependencies..."
-    sudo pacman -S zoxide fzf bash-completion tar bat starship ttf-firacode-nerd stow
+    sudo pacman -S zoxide fzf bash-completion tar bat starship ttf-firacode-nerd stow eza fd
 }
 
 installStarship() {

@@ -9,10 +9,10 @@ return {
 		},
 		keys = {
 			{ "<leader>e", "<Cmd>Neotree focus<CR>", desc = "Give focus to Neotree window" },
-			{ "<leader>fe", "<Cmd>Neotree filesystem<CR>", desc = "Show filesystem in Neotree window" },
-			{ "<leader>be", "<Cmd>Neotree buffers<CR>", desc = "Show open buffers in Neotree window" },
-			{ "<leader>ge", "<Cmd>Neotree git_status<CR>", desc = "Show git status in Neotree window" },
-			{ "<leader>ft", "<Cmd>Neotree toggle<CR>", desc = "Show/hide Neotree window" },
+			{ "<leader>tf", "<Cmd>Neotree filesystem<CR>", desc = "Show filesystem in Neotree window" },
+			{ "<leader>tb", "<Cmd>Neotree buffers<CR>", desc = "Show open buffers in Neotree window" },
+			{ "<leader>tg", "<Cmd>Neotree git_status<CR>", desc = "Show git status in Neotree window" },
+			{ "<leader>tt", "<Cmd>Neotree toggle<CR>", desc = "Show/hide Neotree window" },
 		},
 		opts = {
 			filesystem = {

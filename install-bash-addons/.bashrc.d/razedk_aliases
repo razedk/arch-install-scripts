@@ -8,6 +8,7 @@ function psearch-exact() {
 alias rvim='nvim-distro.sh rvim'
 alias jvim='nvim-distro.sh jvim'
 alias dvim='nvim-distro.sh dvim'
+alias avim='nvim-distro.sh avim'
 
 # Pacman
 alias pup='sudo pacman -Suy && paru -Suy'

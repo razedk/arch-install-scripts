@@ -8,3 +8,6 @@ require("config.lazy")
 -- Set color scheme
 vim.cmd("colorscheme tokyonight")
 --vim.cmd("colorscheme catppuccin")
+
+local windowSeparatorColor="#392c75"
+vim.cmd("hi WinSeparator guifg=" .. windowSeparatorColor)

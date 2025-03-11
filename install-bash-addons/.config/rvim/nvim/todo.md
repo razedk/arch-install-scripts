@@ -8,13 +8,14 @@
 - [ ] folke/trouble.nvim                            - Better diagnostics list (build errors, quickfix etc)
 - [ ] folke/todo-comments.nvim                      - Finds and lists all of the TODO, HACK, BUG, etc comment
 - [ ] folke/persistence.nvim                        - Save/restore sessions including buffers and window positions
+- [ ] nvim-telescope/telescope.nvim                 - Fuzzy find anything
  
 ## UI changes
 - [x] folke/noice.nvim                              - Highly experimental plugin that completely replaces the UI for messages, cmdline and the popupmenu. 
 - [x] rcarriga/nvim-notify                          - A fancy, configurable, notification manager for NeoVim
 - [x] akinsho/bufferline.nvim                       - Show tabs with buffer on top
 - [x] nvim-lualine/lualine.nvim                     - Show status line in buttom
-- [ ] lukas-reineke/indent-blankline.nvim           - Show indent lines
+- [x] lukas-reineke/indent-blankline.nvim           - Show indent lines
 - [ ] nvimdev/dashboard-nvim                        - Dashboard (start page) 
 
 ## Coding

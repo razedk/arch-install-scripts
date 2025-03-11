@@ -11,6 +11,7 @@ return {
 				{ "<leader>b", group = "Buffer" },
 				{ "<leader>f", group = "Files/Find" },
 				{ "<leader>g", group = "Git" },
+				{ "<leader>t", group = "Neotree" },
 				{ "<leader>x", group = "Lists (location, quickfix" },
 			},
 		},

@@ -5,3 +5,5 @@
 local map = vim.keymap.set -- for conciseness
 
 map("n", "<C-q>", ":q<CR>", { desc = "Quit current window/buffer" })
+map("n", "<C-PageUp>", ":BufferLineCyclePrev<CR>", { desc = "Go to previous tab" })
+map("n", "<C-PageDown>", ":BufferLineCycleNext<CR>", { desc = "Go to next tab" })

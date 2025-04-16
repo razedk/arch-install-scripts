@@ -58,7 +58,7 @@ map("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
 map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
 map("n", "<C-q>", ":q<CR>", { desc = "Quit current window/buffer" })
-map("n", "<C-e>", ":qa<CR>", { desc = "Quit all windows/buffers" })
+--map("n", "<C-e>", ":qa<CR>", { desc = "Quit all windows/buffers" })
 
 -- Special hacks for insert mode to make it slightly more similar to a tradional editor
 map("i", "<C-Left>", "<C-o>b", { desc = "Jump to beginning of previous word" })

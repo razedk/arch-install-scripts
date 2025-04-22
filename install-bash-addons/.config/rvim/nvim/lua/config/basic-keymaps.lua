@@ -83,3 +83,16 @@ map("i", "<A-S-Right>", "<ESC>V", { desc = "Select whole line" })
 -- Select all
 map("i", "<C-a>", "<Esc>ggVG", { desc = "Select all in file/buffer" })
 --map("n", "<C-a>", "ggVG", { desc = "Select all in file/buffer" })
+
+-- Folding
+vim.keymap.set('n', 'z0', ':set foldlevel=0<CR>', { desc = "Collapse all folds" })
+vim.keymap.set('n', 'z1', ':set foldlevel=1<CR>', { desc = "Collapse to level 1" })
+vim.keymap.set('n', 'z2', ':set foldlevel=2<CR>', { desc = "Collapse to level 2" })
+vim.keymap.set('n', 'z3', ':set foldlevel=3<CR>', { desc = "Collapse to level 3" })
+vim.keymap.set('n', 'z4', ':set foldlevel=4<CR>', { desc = "Collapse to level 4" })
+vim.keymap.set('n', 'z5', ':set foldlevel=5<CR>', { desc = "Collapse to level 5" })
+vim.keymap.set('n', 'z6', ':set foldlevel=6<CR>', { desc = "Collapse to level 6" })
+vim.keymap.set('n', 'z7', ':set foldlevel=7<CR>', { desc = "Collapse to level 7" })
+vim.keymap.set('n', 'z8', ':set foldlevel=8<CR>', { desc = "Collapse to level 8" })
+vim.keymap.set('n', 'z9', ':set foldlevel=99<CR>', { desc = "Open all folds" })
+

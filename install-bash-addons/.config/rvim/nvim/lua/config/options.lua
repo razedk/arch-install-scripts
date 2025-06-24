@@ -41,6 +41,9 @@ opt.undofile = true -- Save undoes to a file allowing undo after a restart
 opt.autowrite = true -- Automatically saves buffer when switching to another buffer
 opt.confirm = true -- Confirm to save changes before exiting buffer
 
+-- Updating requences
+vim.o.updatetime = 2000
+
 -- Disable netrw, we want to use neotree instead
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -51,3 +54,5 @@ vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
+-- Session options
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"

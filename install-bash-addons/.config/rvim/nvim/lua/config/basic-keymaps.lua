@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 
+---@diagnostic disable:missing-fields
 local map = vim.keymap.set -- for conciseness
 
 -- ################################################################################################################### --
@@ -22,10 +23,10 @@ map("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window", remap = true })
 map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window", remap = true })
 
 -- Resize window using <ctrl> arrow keys
-map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
-map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
-map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
-map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
+map("n", "<C-Up>", "<cmd>resize +5<cr>", { desc = "Increase Window Height" })
+map("n", "<C-Down>", "<cmd>resize -5<cr>", { desc = "Decrease Window Height" })
+map("n", "<C-Left>", "<cmd>vertical resize -5<cr>", { desc = "Decrease Window Width" })
+map("n", "<C-Right>", "<cmd>vertical resize +5<cr>", { desc = "Increase Window Width" })
 
 -- Move Lines
 map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
@@ -54,8 +55,9 @@ map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 map("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
 map("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
 
--- Lazy
-map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
+-- Lazy/Mason
+map("n", "<leader>zl", "<cmd>Lazy<cr>", { desc = "Lazy" })
+map("n", "<leader>zm", "<cmd>Mason<cr>", { desc = "Mason" })
 
 map("n", "<C-q>", ":q<CR>", { desc = "Quit current window/buffer" })
 --map("n", "<C-e>", ":qa<CR>", { desc = "Quit all windows/buffers" })
@@ -74,6 +76,11 @@ map("i", "<A-S-u>", "<C-o>gUiw", { desc = "Uppercase on current word" })
 -- Delete current line
 map("i", "<C-d>", "<C-o>dd", { desc = "Delete current line" })
 
+-- Buffer commands
+map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+map("n", "<leader>bd", "<cmd>bd<cr>", { desc = "Delete Buffer" })
+map("n", "<leader>bD", "<cmd>bw<cr>", { desc = "Delete Buffer and Window" })
+
 -- Select
 map("i", "<S-Right>", "<ESC>lve", { desc = "Select from cursor to end of word" })
 map("i", "<S-Left>", "<ESC>vb", { desc = "Select from cursor to beginning of word" })
@@ -85,14 +92,17 @@ map("i", "<C-a>", "<Esc>ggVG", { desc = "Select all in file/buffer" })
 --map("n", "<C-a>", "ggVG", { desc = "Select all in file/buffer" })
 
 -- Folding
-vim.keymap.set('n', 'z0', ':set foldlevel=0<CR>', { desc = "Collapse all folds" })
-vim.keymap.set('n', 'z1', ':set foldlevel=1<CR>', { desc = "Collapse to level 1" })
-vim.keymap.set('n', 'z2', ':set foldlevel=2<CR>', { desc = "Collapse to level 2" })
-vim.keymap.set('n', 'z3', ':set foldlevel=3<CR>', { desc = "Collapse to level 3" })
-vim.keymap.set('n', 'z4', ':set foldlevel=4<CR>', { desc = "Collapse to level 4" })
-vim.keymap.set('n', 'z5', ':set foldlevel=5<CR>', { desc = "Collapse to level 5" })
-vim.keymap.set('n', 'z6', ':set foldlevel=6<CR>', { desc = "Collapse to level 6" })
-vim.keymap.set('n', 'z7', ':set foldlevel=7<CR>', { desc = "Collapse to level 7" })
-vim.keymap.set('n', 'z8', ':set foldlevel=8<CR>', { desc = "Collapse to level 8" })
-vim.keymap.set('n', 'z9', ':set foldlevel=99<CR>', { desc = "Open all folds" })
+map("n", "z0", ":set foldlevel=0<CR>", { desc = "Collapse all folds" })
+map("n", "z1", ":set foldlevel=1<CR>", { desc = "Collapse to level 1" })
+map("n", "z2", ":set foldlevel=2<CR>", { desc = "Collapse to level 2" })
+map("n", "z3", ":set foldlevel=3<CR>", { desc = "Collapse to level 3" })
+map("n", "z4", ":set foldlevel=4<CR>", { desc = "Collapse to level 4" })
+map("n", "z5", ":set foldlevel=5<CR>", { desc = "Collapse to level 5" })
+map("n", "z6", ":set foldlevel=6<CR>", { desc = "Collapse to level 6" })
+map("n", "z7", ":set foldlevel=7<CR>", { desc = "Collapse to level 7" })
+map("n", "z8", ":set foldlevel=8<CR>", { desc = "Collapse to level 8" })
+map("n", "z9", ":set foldlevel=99<CR>", { desc = "Open all folds" })
 
+-- Terminal
+--map('t', '<Esc>', [[<C-\><C-n>]], { noremap = true })
+map("t", "jk", [[<C-\><C-n>]], { noremap = true })

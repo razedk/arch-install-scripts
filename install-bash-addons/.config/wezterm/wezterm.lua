@@ -48,7 +48,7 @@ config.window_background_opacity = 0.8
 -- 	"-NoLogo",
 -- } or nil
 
-config.default_prog = { "bash" }
+config.default_prog = { "fish" }
 
 -- ⌨️ Keybindings
 -- keys = {

@@ -1,6 +1,7 @@
 format = """
 [](#432c40)\
 ${env_var.VIRTUAL_ENV_PROMPT}\
+$shell\
 $username\
 [](fg:#432c40 bg:#514674)\
 $directory\
@@ -39,6 +40,17 @@ style_user = "bg:#432c40"
 style_root = "bg:#432c40"
 format = '[ $user ]($style)'
 
+[shell]
+disabled = false
+style = "bg:#432c40"
+bash_indicator = "🖥️"
+fish_indicator = "🐟"
+zsh_indicator = "⚡"
+powershell_indicator = "⚡"
+pwsh_indicator = "⚡"
+cmd_indicator = "🖥️"
+format = '[$indicator]($style)'
+ 
 [directory]
 style = "bg:#514674"
 format = "[ $path ]($style)"

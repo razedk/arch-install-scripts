@@ -30,9 +30,9 @@ config.colors = {
 
 -- 🖼️ Padding
 config.window_padding = {
-	left = 0,
+	left = 7,
 	right = 0,
-	top = 4,
+	top = 7,
 	bottom = 0,
 }
 

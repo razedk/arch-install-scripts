@@ -1,7 +1,41 @@
+local unnamed_counter = 0
+
+-- Custom action to send selected items to a new buffer
+local function send_items_to_new_buffer(picker, items)
+	-- Get all items (or selected items if any are selected)
+	local results = #items > 0 and items or picker:items()
+
+	-- Create new buffer
+	-- local buf = vim.api.nvim_create_buf(true, true) -- (listed=true, scratch=true)
+	local buf = vim.api.nvim_create_buf(true, false) -- (listed=true, scratch=true)
+	vim.api.nvim_set_current_buf(buf)
+
+	-- Extract text from items
+	local lines = {}
+	for _, item in ipairs(results) do
+		-- item.text contains the display text
+		-- item.file, item.lnum, item.col for location info
+		if item.text then
+			table.insert(lines, item.text)
+		end
+	end
+
+	-- Set lines in buffer
+	vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+	vim.bo[buf].buftype = "nofile"
+	unnamed_counter = unnamed_counter + 1
+	vim.api.nvim_buf_set_name(buf, string.format("[grep %d]", unnamed_counter))
+	-- vim.bo[buf].bufhidden = "wipe"
+	vim.schedule(function()
+		vim.cmd("only")
+	end)
+end
+
 return {
-  "folke/snacks.nvim",
-  priority = 1000,
-  lazy = false,
+	"folke/snacks.nvim",
+	priority = 1000,
+	lazy = false,
+  -- stylua: ignore start
   keys = {
     { "<leader>bd",      function() Snacks.bufdelete() end,                                      desc = "Delete Buffer" },
     -- Top Pickers & Explorer
@@ -35,7 +69,6 @@ return {
     { '<leader>s"',      function() Snacks.picker.registers() end,                               desc = "Registers" },
     { '<leader>s/',      function() Snacks.picker.search_history() end,                          desc = "Search History" },
     { "<leader>sa",      function() Snacks.picker.autocmds() end,                                desc = "Autocmds" },
-    { "<leader>sb",      function() Snacks.picker.lines() end,                                   desc = "Buffer Lines" },
     { "<leader>sc",      function() Snacks.picker.command_history() end,                         desc = "Command History" },
     { "<leader>sC",      function() Snacks.picker.commands() end,                                desc = "Commands" },
     { "<leader>sd",      function() Snacks.picker.diagnostics() end,                             desc = "Diagnostics" },
@@ -56,28 +89,45 @@ return {
     -- LSP
     { "gsd",             function() Snacks.picker.lsp_definitions() end,                         desc = "Goto Definition" },
     { "gsD",             function() Snacks.picker.lsp_declarations() end,                        desc = "Goto Declaration" },
-    { "gsr",             function() Snacks.picker.lsp_references() end,                          nowait = true,                     desc = "References" },
+    { "gsr",             function() Snacks.picker.lsp_references() end,                          desc = "References", nowait = true },
     { "gI",              function() Snacks.picker.lsp_implementations() end,                     desc = "Goto Implementation" },
     { "gy",              function() Snacks.picker.lsp_type_definitions() end,                    desc = "Goto T[y]pe Definition" },
     { "<leader>ss",      function() Snacks.picker.lsp_symbols() end,                             desc = "LSP Symbols" },
     { "<leader>sS",      function() Snacks.picker.lsp_workspace_symbols() end,                   desc = "LSP Workspace Symbols" },
   },
-  ---@type snacks.Config
-  opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-    bigfile = { enabled = true },
-    dashboard = { enabled = true },
-    explorer = { enabled = false },
-    indent = { enabled = true, only_current = true, animate = { enabled = false } },
-    input = { enabled = true },
-    picker = { enabled = true },
-    notifier = { enabled = false },
-    quickfile = { enabled = true },
-    scope = { enabled = false },
-    scroll = { enabled = true },
-    statuscolumn = { enabled = true },
-    words = { enabled = true },
-  },
+	-- stylua: ignore end
+
+	---@type snacks.Config
+	opts = {
+		-- your configuration comes here
+		-- or leave it empty to use the default settings
+		-- refer to the configuration section below
+		bigfile = { enabled = true },
+		dashboard = { enabled = false },
+		explorer = { enabled = false },
+		indent = { enabled = true, only_current = true, animate = { enabled = false } },
+		input = { enabled = true },
+		notifier = { enabled = false },
+		quickfile = { enabled = true },
+		scope = { enabled = false },
+		scroll = { enabled = true },
+		statuscolumn = { enabled = true },
+		words = { enabled = true },
+		picker = {
+			enabled = true,
+			matcher = {
+				fuzzy = false, -- Disable fuzzy matching globally
+			},
+			win = {
+				input = {
+					keys = {
+						["<C-x>"] = { "send_items_to_new_buffer", mode = { "n", "i" } },
+					},
+				},
+			},
+			actions = {
+				send_items_to_new_buffer = send_items_to_new_buffer,
+			},
+		},
+	},
 }

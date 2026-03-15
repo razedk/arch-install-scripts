@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # function psearch-exact() {
-#   pacman -Ss "^$1$"
+#   yay -Ss "^$1$"
 # }
 
 # Neovim distros
@@ -10,15 +10,15 @@ alias jvim 'nvim-distro.sh jvim'
 alias dvim 'nvim-distro.sh dvim'
 alias avim 'nvim-distro.sh avim'
 
-# Pacman
-alias pup 'sudo pacman -Suy && paru -Suy'
-# alias psearch-exact 'function _() { pacman -Ss "^$1$" }; _'
-alias plist 'sudo pacman -Sup --print'
-alias pin 'sudo pacman -S'
-alias psearch 'pacman -Ss'
+# yay
+alias pup 'yay -Suy'
+# alias psearch-exact 'function _() { yay -Ss "^$1$" }; _'
+alias plist 'yay -Sup --print'
+alias pin 'yay -S'
+alias psearch 'yay -Ss'
 alias pse psearch
 # alias psx psearch-exact
-alias prm 'sudo pacman -Rns'
+alias prm 'yay -Rns'
 
 # GIT
 alias gst 'git status'
@@ -44,9 +44,9 @@ alias show-grub-entries "sudo awk -F\\' '{ gsub(/^[ \t]+/,\"\", \$1); if (\$1 ==
 alias whatismyip "hostname -I"
 
 # Alias handling
-alias edit-alias 'edit $HOME/.bashrc.d/razedk_aliases'
-alias edit-prompt 'edit $HOME/.bashrc.d/razedk_prompt'
-alias reload-alias '. $HOME/.bashrc.d/razedk_aliases'
+alias edit-alias 'edit $HOME/.config/fish/conf.d/razedk_aliases.fish'
+alias edit-prompt 'edit $HOME/.config/fish/conf.d/razedk_aliases.fish'
+alias reload-alias '. $HOME/.config/fish/conf.d/razedk_aliases.fish'
 
 # Change directory aliases
 alias home 'cd ~'
@@ -112,3 +112,6 @@ alias folderssort 'find . -maxdepth 1 -type d -print0 | xargs -0 du -sk | sort -
 alias tree 'tree -CAhF --dirsfirst'
 alias treed 'tree -CAFd'
 alias mountedinfo 'df -hT'
+
+# Files
+alias files='nautilus . &'

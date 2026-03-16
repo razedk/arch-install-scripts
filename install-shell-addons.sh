@@ -30,7 +30,8 @@ installDepend() {
 installConfig() {
     print_info "Sym linking config files in (${INSTALL_PATH})..."
     rm -rf ${HOME}/.config/nvim ${HOME}/.config/rvim ${HOME}/.config/starship.toml ${HOME}/.config/wezterm ${HOME}/.config/fish ${HOME}/.bashrc ${HOME}/.bashrc.d 
-    stow -d ${INSTALL_PATH} -t ${HOME} nvim rvim wezterm bash fish starship  
+    rm -rf ${HOME}/.local/bin/*.sh
+    stow -d ${INSTALL_PATH} -t ${HOME} nvim rvim wezterm bash fish starship bin 
 }
 
 configNerdFont() {

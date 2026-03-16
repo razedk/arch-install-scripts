@@ -1,0 +1,46 @@
+[user]
+	email = jal@intelligentsystems.dk
+	name = Jacob Lundholm
+[credential]
+	helper = /usr/lib/git-core/git-credential-libsecret
+[push]
+	autoSetupRemote = true
+	recurseSubmodules = check
+[alias]
+	st = status
+	cm = commit -m
+	cma = commit -m -a
+	ph = push
+	pl = pull
+	aa = !git add . && git status
+	co = checkout
+	pusho = !git config list push -u origin $(git branch --show-current)
+	cl = config --list
+	gl = config --global --list
+	log20 = log --graph --pretty=format:'%Cred%h%Creset - %C(bold blue)<%cn>%Creset - %Cgreen(%ch)%Creset -%C(yellow)%d%Creset %s' --abbrev-commit -n20
+	sb = !git switch $(git branch | fzf)
+	diffp = "!f() { git diff **/*$@; }; f"
+	alias = !git config --list | grep alias
+	root = rev-parse --show-toplevel
+	fo = fetch origin
+	log50 = log --graph --pretty=format:'%Cred%h%Creset - %C(bold blue)<%cn>%Creset - %Cgreen(%ch)%Creset -%C(yellow)%d%Creset %s' --abbrev-commit -n50
+[commit]
+	gpgSign = false
+[pull]
+	rebase = false
+[gui]
+	pruneduringfetch = true
+[smartgit "submodule"]
+	fetchalways = false
+	update = true
+	initializenew = true
+[diff]
+	tool = meld
+[difftool]
+	prompt = false
+[merge]
+	tool = meld
+[mergetool]
+	prompt = false
+[mergetool "meld"]
+	cmd = meld \"$LOCAL\" \"$MERGED\" \"$REMOTE\" --output=\"$MERGED\"

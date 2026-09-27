@@ -28,10 +28,6 @@ return {
 		},
 		opts = {
 			file_types = { "markdown", "Avante" },
-			render = true,
-			conceal = {
-				current_line = true, -- <- this makes it render even the current line
-			},
 		},
 	},
 	{

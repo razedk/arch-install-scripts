@@ -24,6 +24,8 @@
 	root = rev-parse --show-toplevel
 	fo = fetch origin
 	log50 = log --graph --pretty=format:'%Cred%h%Creset - %C(bold blue)<%cn>%Creset - %Cgreen(%ch)%Creset -%C(yellow)%d%Creset %s' --abbrev-commit -n50
+	cmp = "!f() { git commit -m \"$1\" && git push; }; f"
+	diffs = diff --staged
 [commit]
 	gpgSign = false
 [pull]

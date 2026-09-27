@@ -39,8 +39,9 @@ config.window_padding = {
 -- 🔲 Window behavior
 -- config.initial_rows = 32
 -- config.initial_cols = 100
-config.window_decorations = "RESIZE"
-config.window_background_opacity = 0.8
+--config.window_decorations = "RESIZE"
+config.window_decorations = "NONE"
+config.window_background_opacity = 1.0
 
 -- 🔀 Shell selector (Windows)
 -- config.default_prog = wezterm.target_triple == "x86_64-pc-windows-msvc" and {
@@ -51,6 +52,19 @@ config.window_background_opacity = 0.8
 config.default_prog = { "fish" }
 
 -- ⌨️ Keybindings
+config.keys = {
+	{
+		key = "F2",
+		action = wezterm.action.PromptInputLine({
+			description = "Rename tab",
+			action = wezterm.action_callback(function(window, pane, line)
+				if line then
+					window:active_tab():set_title(line)
+				end
+			end),
+		}),
+	},
+}
 -- keys = {
 -- 	{ key = "Enter", mods = "ALT", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
 -- 	{ key = "\\", mods = "ALT", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
